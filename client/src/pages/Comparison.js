@@ -31,7 +31,7 @@ import CompareIcon from '@mui/icons-material/Compare';
 import AddIcon from '@mui/icons-material/Add';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import axios from 'axios';
+import api from '../utils/api';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, RadarElement, PointElement, LineElement);
 
@@ -66,7 +66,7 @@ const Comparison = () => {
     if (!dataset.query.trim()) return;
 
     try {
-      const response = await axios.post('/api/twitter/search', {
+      const response = await api.post('/api/twitter/search', {
         query: dataset.query,
         maxResults: 50
       });
@@ -89,7 +89,7 @@ const Comparison = () => {
     setError('');
 
     try {
-      const response = await axios.post('/api/analysis/compare', {
+      const response = await api.post('/api/analysis/compare', {
         datasets: datasetsWithTweets
       });
 

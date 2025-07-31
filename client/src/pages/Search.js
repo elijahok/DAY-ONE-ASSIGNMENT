@@ -31,7 +31,7 @@ import VerifiedIcon from '@mui/icons-material/Verified';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ChatIcon from '@mui/icons-material/Chat';
-import axios from 'axios';
+import api from '../utils/api';
 import moment from 'moment';
 
 const Search = () => {
@@ -56,7 +56,7 @@ const Search = () => {
     setAnalysis(null);
 
     try {
-      const response = await axios.post('/api/twitter/search', {
+      const response = await api.post('/api/twitter/search', {
         query: searchQuery,
         maxResults,
         includeReplies
@@ -85,9 +85,9 @@ const Search = () => {
 
     try {
       const [sentimentResponse, insightsResponse, trendingResponse] = await Promise.all([
-        axios.post('/api/analysis/sentiment', { tweets }),
-        axios.post('/api/analysis/insights', { tweets }),
-        axios.post('/api/analysis/trending', { tweets })
+        api.post('/api/analysis/sentiment', { tweets }),
+        api.post('/api/analysis/insights', { tweets }),
+        api.post('/api/analysis/trending', { tweets })
       ]);
 
       setAnalysis({

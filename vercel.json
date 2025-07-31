@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "client/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    },
+    {
+      "src": "server/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/client/build/index.html"
+    }
+  ],
+  "env": {
+    "TWITTER_BEARER_TOKEN": "@twitter_bearer_token",
+    "TWITTER_API_KEY": "@twitter_api_key",
+    "TWITTER_API_SECRET": "@twitter_api_secret",
+    "TWITTER_ACCESS_TOKEN": "@twitter_access_token",
+    "TWITTER_ACCESS_TOKEN_SECRET": "@twitter_access_token_secret",
+    "OPENAI_API_KEY": "@openai_api_key",
+    "GROK_API_KEY": "@grok_api_key",
+    "GROK_API_URL": "@grok_api_url",
+    "NODE_ENV": "production"
+  }
+}
