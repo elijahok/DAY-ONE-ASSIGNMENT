@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.MuiDataGrid-root {
+  background-color: transparent !important;
+  border: 1px solid #38444d !important;
+}
+
+.MuiDataGrid-cell {
+  border-color: #38444d !important;
+}
+
+.MuiDataGrid-columnHeaders {
+  background-color: #192734 !important;
+  border-color: #38444d !important;
+}
+
+.MuiDataGrid-footerContainer {
+  background-color: #192734 !important;
+  border-color: #38444d !important;
+}
